@@ -11,6 +11,19 @@ export const clearResults = () => {
 	elements.searchResPages.innerHTML = '';
 };
 
+export const highLightSelected = (id) => {
+	const resultArray = Array.from(document.querySelectorAll('.results__link'));
+
+	resultArray.forEach((el) => {
+		el.classList.remove('results__link--active');
+	});
+
+	// selecting all links based on an attr (href), using CSS selectors
+	document
+		.querySelector(`a[href='#${id}']`)
+		.classList.add('results__link--active');
+};
+
 const limitRecipeTitle = (title, limit = 17) => {
 	const newTitle = [];
 
@@ -81,7 +94,7 @@ export const renderResults = (recipes, page = 1, resPerPage = 10) => {
 	// looping over the recipess and calling the renderRecipe in every iteration
 	recipes.slice(start, end).forEach(renderRecipe);
 
-	// recipes.forEach((el) => {
+	// recipes.slice(start, end).forEach((el) => {
 	//   renderRecipe(el);
 	// });
 
