@@ -18,6 +18,7 @@ const formatCount = (count) => {
 		if (!dec) {
 			return newCount;
 		}
+
 		if (int === 0) {
 			const fr = new Fraction(newCount);
 			return `${fr.numerator}/${fr.denominator}`;
@@ -98,7 +99,7 @@ export const renderRecipe = (recipe) => {
         ${recipe.ingredients.map((el) => createIngredients(el)).join('')}
       </ul>
 
-      <button class="btn-small recipe__btn">
+      <button class="btn-small recipe__btn recipe__btn--add">
           <svg class="search__icon">
               <use href="img/icons.svg#icon-shopping-cart"></use>
           </svg>
