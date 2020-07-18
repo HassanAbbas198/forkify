@@ -18,13 +18,13 @@ export const highLightSelected = (id) => {
 		el.classList.remove('results__link--active');
 	});
 
-	// selecting all links based on an attr (href), using CSS selectors
+	// selecting all links based on an attr, using CSS selectors
 	document
-		.querySelector(`a[href='#${id}']`)
+		.querySelector(`.results__link[href='#${id}']`)
 		.classList.add('results__link--active');
 };
 
-const limitRecipeTitle = (title, limit = 17) => {
+export const limitRecipeTitle = (title, limit = 17) => {
 	const newTitle = [];
 
 	if (title.length > limit) {
