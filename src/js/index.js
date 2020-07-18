@@ -100,6 +100,14 @@ const controlList = () => {
 	});
 };
 
+window.addEventListener('load', () => {
+	state.likes = new Likes();
+	state.likes.readStorage();
+	likesView.toggleLikeMenu(state.likes.getNumLikes());
+
+	state.likes.likes.forEach((like) => likesView.renderLike(like));
+});
+
 elements.shoppingList.addEventListener('click', (e) => {
 	const id = e.target.closest('.shopping__item').dataset.itemid;
 	if (e.target.matches('.shopping__delete, .shopping__delete *')) {
